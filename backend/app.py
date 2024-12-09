@@ -1,14 +1,8 @@
-from flask import Flask, send_from_directory
+from flask import Flask
+from routes import *
+from app import create_app  # Asegúrate de importar la función create_app
 
-app = Flask(__name__, static_folder='../frontend/build', static_url_path='')
-
-@app.route('/')
-def serve():
-    return send_from_directory(app.static_folder, 'index.html')
-
-@app.route("/")
-def home():
-    return "¡Hola desde Flask!"
+app = create_app()  # Usamos la factory para crear la app
 
 if __name__ == "__main__":
     app.run(debug=True)

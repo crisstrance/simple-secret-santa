@@ -2,21 +2,19 @@ import os
 import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
-from flask import Flask, request, jsonify, Blueprint
-from flask_cors import CORS
+from flask import Blueprint, request, jsonify
+from flask import current_app as app
 from dotenv import load_dotenv
 
-# Inicialización de Flask
-app = Flask(__name__)
+
+# Definimos el Blueprint
+api = Blueprint('api', __name__)
 
 # Cargar variables de entorno desde .env
 load_dotenv()
 sender_email = os.getenv('SENDER_EMAIL')
 sender_password = os.getenv('SENDER_PASSWORD')
 
-# Configuración CORS
-api = Blueprint('api', __name__)
-CORS(api)  # Allow CORS requests to this API
 
 # Ruta para enviar el correo
 @api.route('/send-email', methods=['POST'])
@@ -35,7 +33,7 @@ def send_email():
     msg['From'] = sender_email
     msg['To'] = recipient
     msg['Subject'] = subject
-    msg.attach(MIMEText(body, 'plain'))
+    msg.attach(MIMEText(body, 'html'))
 
     try:
         # Conexión SMTP con Gmail
@@ -56,8 +54,6 @@ def handle_hello():
     response_body["message"] = "Hello! I'm a message that came from the backend"
     return response_body, 200
 
-# Registramos el blueprint y arrancamos el servidor
-app.register_blueprint(api, url_prefix='/api')
-
+# Arrancar el servidor
 if __name__ == '__main__':
     app.run(debug=True)
