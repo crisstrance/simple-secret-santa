@@ -9,6 +9,9 @@ flask-cors = "*"
 python-dotenv = "*"
 
 [dev-packages]
+flask = "*"
+flask-cors = "*"
+python-dotenv = "*"
 
 [requires]
 python_version = "3.12"
