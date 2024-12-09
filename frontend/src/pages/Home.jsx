@@ -4,12 +4,12 @@ import React, { useState } from "react";
 const sendEmail = async (recipient, body) => {
     const emailData = {
         recipient: recipient,
-        body: body,  // Asegúrate de pasar HTML aquí
+        body: body,
         subject: "Tu Secret Santa es....."
     };
 
     try {
-        const response = await fetch('https://super-memory-7pj475v7v4vfwrjg-5000.app.github.dev/api/send-email', {
+        const response = await fetch('https://organic-system-pp5q7wj7g9rfr5x4-5000.app.github.dev/api/send-email', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -17,11 +17,13 @@ const sendEmail = async (recipient, body) => {
             body: JSON.stringify(emailData),
         });
 
-        const result = await response.json();
+        // Verifica si la respuesta es válida
         if (response.ok) {
+            const result = await response.json();  // Espera una respuesta JSON válida
             console.log('Correo enviado:', result.message);
         } else {
-            console.error('Error al enviar correo:', result.error);
+            const error = await response.json();  // Maneja el caso cuando la respuesta no es ok
+            console.error('Error al enviar correo:', error.error);
         }
     } catch (error) {
         console.error('Error en la solicitud:', error);
@@ -32,6 +34,7 @@ function Home() {
     const [participants, setParticipants] = useState([
         { name: "", email: "" },
     ]);
+    const [results, setResults] = useState([]);
     const [message, setMessage] = useState("");
 
     // Nuevos estados para el nombre del sorteo y el presupuesto
