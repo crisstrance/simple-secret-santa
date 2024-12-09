@@ -7,9 +7,9 @@ const sendEmail = async (recipient, body) => {
         body: body,
         subject: "Tu Secret Santa es....."
     };
-
+    const apiUrl = process.env.REACT_APP_BACKEND_URL;
     try {
-        const response = await fetch(`${process.env.BACKEND_URL}/api/send-email`, {
+        const response = await fetch(`${apiUrl}/api/send-email`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
