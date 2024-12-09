@@ -1,11 +1,10 @@
 import os
 from flask import Flask, send_from_directory
-from routes import *
-from app import create_app  # Asegúrate de importar la función create_app
 
 def create_app():
-    app = Flask(__name__)
-    # Aquí configuramos el puerto con la variable de entorno `PORT` o por defecto el puerto 5000
+    app = Flask(__name__, static_folder='frontend/build', static_url_path='')
+
+    # Configuramos el puerto con la variable de entorno `PORT`
     port = os.environ.get('PORT', 5000)
 
     # Ruta para servir la página principal de React
@@ -17,6 +16,8 @@ def create_app():
     @app.route('/<path:path>')
     def serve_static(path):
         return send_from_directory('frontend/build', path)
-        
+
+    # Inicia la app Flask en el puerto correcto
     app.run(host='0.0.0.0', port=port, debug=True)
+
     return app
