@@ -104,7 +104,7 @@ function Home() {
                 {/* Campo para el nombre del sorteo */}
                 <div className="row align-items-center mb-3">
 
-                    <div class="input-group flex-nowrap">
+                    <div className="input-group flex-nowrap">
                         <span className="input-group-text fw-bold" id="addon-wrapping">Nombre del Sorteo</span>
                         <input
                             type="text"
@@ -121,7 +121,7 @@ function Home() {
                 {/* Campo para el presupuesto estimado */}
                 <div className="row align-items-center mb-3">
 
-                    <div class="input-group flex-nowrap">
+                    <div className="input-group flex-nowrap">
                         <span className="input-group-text fw-bold" id="addon-wrapping">Presupuesto Estimado</span>
                         <input
                             type="number"
@@ -139,7 +139,7 @@ function Home() {
 
             <form>
                 {participants.map((participant, index) => (
-                    <div className="card p-2 mb-3 text-light fw-bold" key={index} style={{ backgroundColor: "#01257D" }}>
+                    <div className="card p-2 mb-3 text-light fw-bold" key={index} style={{ backgroundColor: "#054f63" }}>
                         <div className="container">
                             <label htmlFor={`name-${index}`} className="form-label">
                                 Nombre
@@ -168,7 +168,8 @@ function Home() {
 
                             <button
                                 type="button"
-                                className="btn btn-danger mt-2 float-end"
+                                className="btn mt-2 text-light float-end"
+                                style={{ backgroundColor: "#910115" }}
                                 onClick={() => handleRemoveParticipant(index)}
                             >
                                 <i className="fa-solid fa-user-xmark"></i> Eliminar
@@ -179,7 +180,8 @@ function Home() {
 
                 <button
                     type="button"
-                    className="btn btn-success float-end"
+                    className="btn text-light float-end"
+                    style={{ backgroundColor: "#007a0c" }}
                     onClick={handleAddParticipant}
                 >
                     <i className="fa-solid fa-user-plus"></i> Agregar participante
