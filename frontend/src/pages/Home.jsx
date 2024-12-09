@@ -9,7 +9,7 @@ const sendEmail = async (recipient, body) => {
     };
 
     try {
-        const response = await fetch('https://organic-system-pp5q7wj7g9rfr5x4-5000.app.github.dev/api/send-email', {
+        const response = await fetch(`${process.env.BACKEND_URL}/api/send-email`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
