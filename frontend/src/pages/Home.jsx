@@ -32,7 +32,6 @@ function Home() {
     const [participants, setParticipants] = useState([
         { name: "", email: "" },
     ]);
-    const [results, setResults] = useState([]);
     const [message, setMessage] = useState("");
 
     // Nuevos estados para el nombre del sorteo y el presupuesto
