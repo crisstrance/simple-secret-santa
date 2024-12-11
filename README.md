@@ -9,9 +9,9 @@ No requiere registro de usuarios ni almacenamiento de datos. El sorteo se genera
 
 ## **Características**  
 - **Fácil de usar**: Introduce los nombres de los participantes y genera el sorteo en segundos.  
-- **Resultados privados**: Cada participante puede ver su destinatario en un enlace único.  
+- **Resultados privados**: Cada participante recibirá un correo electrónico con su amigo invisible.  
 - **Sin registro ni almacenamiento**: Los datos no se guardan, garantizando privacidad.  
-- **Restringe combinaciones** *(opcional)*: Define quién no puede regalar a quién.  
+- **Personalización del sorteo**: Define titulo del sorteo y presupuesto estimado.  
 
 ---
 
