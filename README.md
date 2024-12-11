@@ -1,4 +1,5 @@
 # **Simple Secret Santa** 🎅🎁  
+`En desarrollo`
 
 ## **Descripción**  
 **Simple Secret Santa** es una aplicación web minimalista y funcional para organizar sorteos de amigo invisible de manera rápida y sin complicaciones.  
